@@ -1,0 +1,180 @@
+/* Общее стили для body */
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('/static/Pictures/background1.jpg')
+    no-repeat center center fixed;
+    background-size: cover; /* Покрытие всего экрана */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Стили для баннера */
+.banner {
+    background-color: #b3e5fc; /* Легкий голубой фон для баннера */
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Обеспечивает, чтобы баннер находился над остальным содержимым */
+    padding: 20px 0; /* Убираем отступы внутри баннера */
+}
+
+/* Размеры текста в баннере */
+.banner h1 {
+    font-size: 2.5em;
+    color: #007bff;
+    margin: 0;
+}
+
+.banner h1 span {
+    font-style: italic; /* Курсивное начертание */
+    color: #00695c; /* Темный голубой цвет для выделения */
+}
+
+/* Основной контейнер для колонок */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px; /* Общий отступ для контейнера */
+    margin-top: 80px; /* Отступ сверху, чтобы избежать наложения на баннер */
+}
+
+/* Колонки */
+.left-column, .right-column {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 20%; /* Фиксированная ширина для колонок */
+    position: sticky; /* Фиксированное позиционирование при прокрутке */
+    top: 80px; /* Отступ от верха, чтобы оставался видимым под баннером */
+}
+
+.center-column {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 60%; /* Ширина центральной колонки */
+}
+
+/* Убедитесь, что все колонки имеют одинаковую высоту */
+.container > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box; /* Убедитесь, что отступы и границы не влияют на ширину и высоту */
+}
+
+/* Общие стили для заголовков */
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Стили для формы */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+form input, form textarea, form button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для постов */
+.post {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+}
+
+/* Выравнивание текста в посте */
+.post p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Стили для изображений в постах */
+.post img {
+    max-width: 100%; /* Ограничиваем ширину изображения */
+    height: auto; /* Автоматически подбираем высоту */
+    border-radius: 5px; /* Радиус границы для округления углов */
+    display: block; /* Убираем пробелы вокруг изображения */
+    margin: 10px auto; /* Центрируем изображение по горизонтали */
+}
+
+.post h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #007bff;
+}
+
+.post:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Стили для правой колонки */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.author-photo {
+    width: 150px; /* Установите нужный размер фото */
+    height: 150px;
+    border-radius: 30%; /* Круглая форма для фото */
+    margin: 10px 0; /* Отступы вокруг фото */
+    object-fit: cover; /* Обеспечивает корректное отображение фото */
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}

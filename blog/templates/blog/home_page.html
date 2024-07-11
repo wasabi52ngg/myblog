@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} My Blog {% endblock %}
+
+{% block content %} <div class="banner">
+        <h1>WASABI <span>socialmedia</span></h1>
+    </div>
+    <div class="container">
+        <div class="left-column">
+            <h2>Добавить запись</h2>
+            <form method="post" id="new-post-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.title.label_tag }}
+                {{ form.title }}
+                {{ form.photo.label_tag }}
+                {{ form.photo }}
+                {{ form.blog_text.label_tag }}
+                {{ form.blog_text }}
+                {{ form.autor.label_tag }}
+                {{ form.autor }}
+                <button type="submit">Добавить запись</button>
+            </form>
+        </div>
+
+        <div class="center-column" id="post-list">
+            <h2>Лента записей</h2>
+            {% if blogs %}
+                {% for blog in blogs %}
+                <div class="post">
+                    <h3>{{ blog.title }}</h3>
+                    {% if blog.photo %}
+                       <img src="{{ blog.photo.url }}" alt="Фото" height="600" width="600">
+                    {% endif %}
+                    <p>{{ blog.blog_text }}</p>
+                    <p><strong>Автор:</strong> {{ blog.autor }}</p>
+                    <p><strong>Дата:</strong> {{ blog.date_post|date:"Y-m-d H:i" }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Записи отсутствуют.</p>
+            {% endif %}
+        </div>
+
+         <div class="right-column">
+        <h2>Автор данного сайта</h2>
+        <div class="author-info">
+            <img src="{% static 'blog/img/maxresdefault.jpg' %}" alt="Мое фото" class="author-photo">
+            <div class="contact-info">
+                <p><strong>Электронная почта:</strong> <a href="mailto:vovasharafutdinov@mail.ru">vovasharafutdinov@mail.ru</a></p>
+                <p><strong>Телеграмм:</strong> <a href="https://t.me/Wasabishead" target="_blank">Wasabishead</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/wasabi52ngg" target="_blank">wasabi52ngg</a></p>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
