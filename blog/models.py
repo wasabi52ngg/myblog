@@ -6,7 +6,7 @@ from transliterate import translit
 
 # Create your models here.
 class Blog(models.Model):
-    title = models.CharField(max_length=100, blank=False, null=False)
+    title = models.CharField(max_length=150, blank=False, null=False)
     photo = models.FileField(upload_to='blogs_content', blank=True, null=False)
     blog_text = models.CharField(max_length=500, blank=True, null=False)
     autor = models.CharField(max_length=50, blank=False, null=False)
@@ -19,7 +19,7 @@ class Blog(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(translit(f"{self.title} {self.autor}", 'ru', reversed=True)
-)
+                                )
         super(Blog, self).save(*args, **kwargs)
 
     def get_url(self):
